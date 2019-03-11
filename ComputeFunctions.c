@@ -19,8 +19,8 @@ double computeDivision(double firstNumber, double secondNumber)
 {
     if (0 == secondNumber)
     {
-        printf("It`s impossible to divide by 0");
-        return ;
+        errorCode = 1;
+        return 0;
     }
     return firstNumber/secondNumber;
 }
@@ -32,10 +32,16 @@ double computeDivision(double firstNumber, double secondNumber)
 int computeDivisionWithRemainder(double firstNumber, double secondNumber)
 //int or double?
 {
-    if (0 == secondNumber)
+    int firstNum, secondNum;
+    firstNum = firstNumber;
+    secondNum = secondNumber;
+    if (0 == secondNum)
     {
-        printf("It`s impossible to divide by 0"); 
+        errorCode = 1;
+        return 0; 
     }
+    return firstNum % secondNum;
+    
 }
 /*
 @param firstNumber - делимое, secondNum - делитель
@@ -45,10 +51,16 @@ int computeDivisionWithRemainder(double firstNumber, double secondNumber)
 int computeQuotientOfDivision(double firstNumber, double secondNumber)
 //int or double?
 {
+    int firstNum, secondNum;
+    firstNum = firstNumber;
+    secondNum = secondNumber;
     if ( 0 == secondNumber)
     {
-        printf("It`s impossible to divide by 0");
+        errorCode = 1;
+        return 0;
     }
+    return firstNum/secondNum;
+
 }
 /*
 @param firstNumber - a0, secondNumber - множитель прогрессии
@@ -56,7 +68,7 @@ int computeQuotientOfDivision(double firstNumber, double secondNumber)
 @example 2 G 2, N = 3(вводится дополнительно) => члены последовательности: 2,4,8,16;
 сумма последовательности: 30; произведение последовательности: 1024
 */
-double computeMemberOfSequence(double firstNumber, double secondNumber)
+double computeProgression(double firstNumber, double secondNumber)
 {
     
 }

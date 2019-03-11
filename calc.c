@@ -13,8 +13,9 @@
 int main()
 {
     double firstNumber, secondNumber;
+    int errorCode;
     char operation;
-    while(true) {
+    while(1) {
             scanf("%lg%c%lg", &firstNumber, &operation, &secondNumber);
             switch (operation)
             {
