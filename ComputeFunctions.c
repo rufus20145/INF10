@@ -15,7 +15,7 @@
 @return возвращает частное двух чисел, если возможно
 @example деление чисел: 6 / 4 = 1.5
 */
-double computeDivision(double firstNumber, double secondNumber)
+double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 {
     if (0 == secondNumber)
     {
@@ -29,7 +29,7 @@ double computeDivision(double firstNumber, double secondNumber)
 @return возвращает остаток от деления, если возможно
 @example 6 % 4 = 2
 */
-int computeDivisionWithRemainder(double firstNumber, double secondNumber)
+int computeRemainderOfDivision(double firstNumber, double secondNumber, int *errorCode)
 //int or double?
 {
     int firstNum, secondNum;
@@ -48,7 +48,7 @@ int computeDivisionWithRemainder(double firstNumber, double secondNumber)
 @return возвращает неполное частное от деления, если возможно
 @example 6 D 4 = 1
 */
-int computeQuotientOfDivision(double firstNumber, double secondNumber)
+int computeQuotientOfDivision(double firstNumber, double secondNumber, int *errorCode)
 //int or double?
 {
     int firstNum, secondNum;

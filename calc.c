@@ -12,8 +12,8 @@
 #include <ComputeFunctions.c>
 int main()
 {
-    double firstNumber, secondNumber;
-    int errorCode;
+    double firstNumber, secondNumber, result;
+    int errorCode = 0;
     char operation;
     while(1) {
             scanf("%lg%c%lg", &firstNumber, &operation, &secondNumber);
@@ -29,8 +29,14 @@ int main()
                     printf("%lg * %lg = %lg\n", firstNumber, secondNumber, firstNumber*secondNumber);
                     break;
                 case '/':
-                    printf("%lg / %lg = %lg\n", firstNumber, secondNumber, computeDivision(firstNumber, secondNumber) );
+                    result = computeDivision(firstNumber, secondNumber, &errorCode);
+                    if (1==errorCode)
+                        printf("It`s impossible to divide by 0");
+                    else
+                        printf("%lg / %lg = %lg\n", firstNumber, secondNumber);
                     break;
+                case '%':
+                    result = computeDivisionWithRemainder                    
                 default:
                     break;
             }
