@@ -19,7 +19,7 @@ double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 {
     if (0 == secondNumber)
     {
-        errorCode = 1;
+        *errorCode = 1;
         return 0;
     }
     return firstNumber/secondNumber;
@@ -37,7 +37,7 @@ int computeRemainderOfDivision(double firstNumber, double secondNumber, int *err
     secondNum = secondNumber;
     if (0 == secondNum)
     {
-        errorCode = 1;
+        *errorCode = 1;
         return 0; 
     }
     return firstNum % secondNum;
@@ -56,7 +56,7 @@ int computeQuotientOfDivision(double firstNumber, double secondNumber, int *erro
     secondNum = secondNumber;
     if ( 0 == secondNumber)
     {
-        errorCode = 1;
+        *errorCode = 1;
         return 0;
     }
     return firstNum/secondNum;
