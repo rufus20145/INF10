@@ -14,6 +14,7 @@
 @param firstNumber - делимое, secondNum - делитель
 @return возвращает частное двух чисел, если возможно
 @example деление чисел: 6 / 4 = 1.5
+@throws 1 => деление на 0
 */
 double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 {
@@ -28,9 +29,9 @@ double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 @param firstNumber - делимое, secondNum - делитель
 @return возвращает остаток от деления, если возможно
 @example 6 % 4 = 2
+@throws 1 => деление на 0
 */
 int computeRemainderOfDivision(double firstNumber, double secondNumber, int *errorCode)
-//int or double?
 {
     int firstNum, secondNum;
     firstNum = firstNumber;
@@ -47,9 +48,9 @@ int computeRemainderOfDivision(double firstNumber, double secondNumber, int *err
 @param firstNumber - делимое, secondNum - делитель
 @return возвращает неполное частное от деления, если возможно
 @example 6 D 4 = 1
+@throws 1 => деление на 0
 */
 int computeQuotientOfDivision(double firstNumber, double secondNumber, int *errorCode)
-//int or double?
 {
     int firstNum, secondNum;
     firstNum = firstNumber;

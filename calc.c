@@ -9,36 +9,55 @@
 @link http://moria.1586.su/moodle/mod/page/view.php?id=1705
 */
 #include <stdio.h>
-#include <ComputeFunctions.c>
+#include "ComputeFunctions.c"
+#include "Progression.c"
 int main()
 {
     double firstNumber, secondNumber, result;
     int errorCode = 0;
     char operation;
-    while(1) {
-            scanf("%lg%c%lg", &firstNumber, &operation, &secondNumber);
-            switch (operation)
-            {
-                case '+':
-                    printf("%lg + %lg = %ln\n", firstNumber, secondNumber, firstNumber+secondNumber);
-                    break;
-                case '-':
-                    printf("%lg - %lg = %lg\n", firstNumber, secondNumber, firstNumber-secondNumber);
-                    break;
-                case '*':
-                    printf("%lg * %lg = %lg\n", firstNumber, secondNumber, firstNumber*secondNumber);
-                    break;
-                case '/':
-                    result = computeDivision(firstNumber, secondNumber, &errorCode);
-                    if (1==errorCode)
-                        printf("It`s impossible to divide by 0");
-                    else
-                        printf("%lg / %lg = %lg\n", firstNumber, secondNumber);
-                    break;
-                case '%':
-                    result = computeDivisionWithRemainder                    
-                default:
-                    break;
-            }
+    while('true')
+    {
+        scanf("%lg%c%lg", &firstNumber, &operation, &secondNumber);
+        switch (operation)
+        {
+            case '+':
+                printf("%lg + %lg = %ln\n", firstNumber, secondNumber, firstNumber+secondNumber);
+                break;
+            case '-':
+                printf("%lg - %lg = %lg\n", firstNumber, secondNumber, firstNumber-secondNumber);
+                break;
+            case '*':
+                printf("%lg * %lg = %lg\n", firstNumber, secondNumber, firstNumber*secondNumber);
+                break;
+            case '/':
+                result = computeDivision(firstNumber, secondNumber, &errorCode);
+                if (1==errorCode)
+                    printf("It`s impossible to divide by 0");
+                else
+                    printf("%lg / %lg = %lg\n", firstNumber, secondNumber);
+                break;
+            case '%':
+                result = computeRemainderOfDivision(firstNumber, secondNumber, &errorCode);
+                if (1==errorCode)
+                    printf("It`s impossible to divide by 0");
+                else
+                    printf("%.0lg % %.0lg = %.0lg", firstNumber, secondNumber, result);
+            case 'D':
+                result = computeQuotientOfDivision(firstNumber, secondNumber, &errorCode);
+                if (1==errorCode)
+                    printf("It`s impossible to divide by 0");
+                else
+                    printf("%.0lg D %.0lg = %.0lg", firstNumber, secondNumber, result);
+            case 'G':
+                computeProgression(firstNumber, secondNumber);
+                break;
+            case 'E':
+                printf("Exit");
+                return 0;
+            default:
+                break;
+        }
+        errorCode = 0;
     }
 }
