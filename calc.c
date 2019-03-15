@@ -22,7 +22,7 @@ int main()
         switch (operation)
         {
             case '+':
-                printf("%lg + %lg = %ln\n", firstNumber, secondNumber, firstNumber+secondNumber);
+                printf("%lg + %lg = %lg\n", firstNumber, secondNumber, firstNumber+secondNumber);
                 break;
             case '-':
                 printf("%lg - %lg = %lg\n", firstNumber, secondNumber, firstNumber-secondNumber);
@@ -43,12 +43,14 @@ int main()
                     printf("It`s impossible to divide by 0");
                 else
                     printf("%.0lg % %.0lg = %.0lg", firstNumber, secondNumber, result);
+                break;
             case 'D':
                 result = computeQuotientOfDivision(firstNumber, secondNumber, &errorCode);
                 if (1==errorCode)
                     printf("It`s impossible to divide by 0");
                 else
                     printf("%.0lg D %.0lg = %.0lg", firstNumber, secondNumber, result);
+                break;
             case 'G':
                 computeProgression(firstNumber, secondNumber);
                 break;

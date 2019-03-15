@@ -31,11 +31,8 @@ double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 @example 6 % 4 = 2
 @throws 1 => деление на 0
 */
-int computeRemainderOfDivision(double firstNumber, double secondNumber, int *errorCode)
+int computeRemainderOfDivision(int firstNumber, int secondNumber, int *errorCode)
 {
-    int firstNum, secondNum;
-    firstNum = firstNumber;
-    secondNum = secondNumber;
     if (0 == secondNum)
     {
         *errorCode = 1;
@@ -50,11 +47,8 @@ int computeRemainderOfDivision(double firstNumber, double secondNumber, int *err
 @example 6 D 4 = 1
 @throws 1 => деление на 0
 */
-int computeQuotientOfDivision(double firstNumber, double secondNumber, int *errorCode)
+int computeQuotientOfDivision(int firstNumber, int secondNumber, int *errorCode)
 {
-    int firstNum, secondNum;
-    firstNum = firstNumber;
-    secondNum = secondNumber;
     if ( 0 == secondNumber)
     {
         *errorCode = 1;
