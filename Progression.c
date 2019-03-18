@@ -15,17 +15,21 @@
 @return возвращает члены, сумму и произведение последовательности
 @example 2 G 2, N = 3(вводится дополнительно) => члены последовательности: 2,4,8,16;
 сумма последовательности: 30; произведение последовательности: 1024
+@return void
+@uses <stdio.h>
 */
-void computeProgression(int b1, int q)
+void computeProgression(double b1, double q)
 {
-    int bN = b1, n, sum = b1, mult = 1;
+    int n;
+    double bN = b1, sum = b1, mult = 1;
     scanf("%d", &n);
-    for(int i = 1; i <=n; i++)
+    printf("B[1] = %lg\n", b1);
+    for(int i = 1; i <n; i++)
     {
         bN *= q;
-        printf("%d ", bN);
+        printf("B[%d] = %lg\n", i + 1, bN);
         sum += bN;
         mult *= bN;
     }
-    printf("\nSum: %d \nProduct: %d", sum, mult);
+    printf("\nSum: %lg\nProduct: %lg\n", sum, mult);
 }

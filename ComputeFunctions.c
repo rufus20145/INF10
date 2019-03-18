@@ -33,12 +33,12 @@ double computeDivision(double firstNumber, double secondNumber, int *errorCode)
 */
 int computeRemainderOfDivision(int firstNumber, int secondNumber, int *errorCode)
 {
-    if (0 == secondNum)
+    if (0 == secondNumber)
     {
         *errorCode = 1;
         return 0; 
     }
-    return firstNum % secondNum;
+    return firstNumber % secondNumber;
     
 }
 /*
@@ -54,6 +54,6 @@ int computeQuotientOfDivision(int firstNumber, int secondNumber, int *errorCode)
         *errorCode = 1;
         return 0;
     }
-    return firstNum/secondNum;
+    return firstNumber/secondNumber;
 
 }
