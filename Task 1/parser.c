@@ -12,7 +12,7 @@
  * @param char* ctring[] - указатель на строку для парсинга
  * @return void
  */
-int parseFunction(char strin[], char* funcX, char* funcY, int* k, int* b) {
+int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {
 }
 
 /**
@@ -20,7 +20,11 @@ int parseFunction(char strin[], char* funcX, char* funcY, int* k, int* b) {
  * @return void
  */
 
-int parseSet(char string[], int values[MAX_V], char setX[MAX_V], int setNum) {
-    strcpy(setX[setNum], string[4]);
-    printf(setX[setNum]);
+int parseSet(char string[], int arguments[MAX_V], char setX[MAX_V], int setNum) {
+    setX[setNum] = string[4];//От 6
+    do
+    {
+        /* code */
+    } while (/* condition */);
+    
 }

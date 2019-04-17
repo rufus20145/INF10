@@ -9,8 +9,9 @@
 #include <string.h>
 #include "errorHandler.c"
 #include "parser.c"
-#include "functions.c"
+#include "compute.c"
 #include "output.c"
+
 #define MAX_V 10
 /**
  * @uses <stdio.h>
@@ -28,13 +29,15 @@ int main(int argc, char* argv[]) {
     int values[MAX_V];
     int setNum = 0;
 
-    
     for(int i = 1; i < argc; i++) {
         if(strncmp(argv[i], "FUNCTION", 8) == 0) {//проверяем строку на FUNCTION
             parseFunction(argv[i], &funcX, &funcY, &k, &b);
             continue;
         }
         else if(strncmp(argv[i], "SET", 3) == 0) {//проверяем строку на SET
+            for(int k = 0; k < MAX_V; k++) {
+                arguments[k] = k;
+            }
             parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
             setNum++;
             continue;
