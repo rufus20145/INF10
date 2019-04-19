@@ -39,7 +39,7 @@ int main(int argc, char* argv[]) {
             for(int k = 0; k < MAX_V; k++) {
                 arguments[k] = k;
             }
-            parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
+            errorCode = parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
             setNum++;
             continue;
         }

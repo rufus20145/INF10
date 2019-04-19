@@ -22,16 +22,16 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {
  */
 
 int parseSet(char string[], int arguments[MAX_V], char setX[MAX_V], int setNum) {
+    char tempStr[MAX_LEN];
     setX[setNum] = string[4];
+
+    if(string[5] != '=') return 3;
     while(1) {
-        char tempStr[MAX_LEN];
         int i = 6;
         if(isdigit(string[i])) {
             tempStr[i - 6] = string[i];
         }
-        else {
-            break;
-        }
-
-    }    
+        else break;
+        i++;
+    } 
 }
