@@ -13,6 +13,7 @@
 #include "output.c"
 
 #define MAX_V 10
+#define MAX_LEN 250
 /**
  * @uses <stdio.h>
  * @uses <string.h>
@@ -38,7 +39,7 @@ int main(int argc, char* argv[]) {
             for(int k = 0; k < MAX_V; k++) {
                 arguments[k] = k;
             }
-            parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
+            errorCode = parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
             setNum++;
             continue;
         }
@@ -46,6 +47,9 @@ int main(int argc, char* argv[]) {
         handleError(&errorCode);
     }
     for (int i = 0; i < MAX_V; i++) {
-        computeResult(funcX, setX[i], arguments[i], &values[i], &errorCode);
+        computeFunction(funcX, funcY, setX[i], arguments[i], &values[i], &errorCode);
+    }
+    for (int i = 0; i < MAX_V; i++) {
+        printResult(values[i], arguments[i], funcY);
     }
 }

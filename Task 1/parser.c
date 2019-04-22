@@ -7,6 +7,7 @@
  */
 
 #define MAX_V 10
+#define MAX_LEN 250
 
 /**
  * @param char* ctring[] - указатель на строку для парсинга
@@ -21,10 +22,14 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {
  */
 
 int parseSet(char string[], int arguments[MAX_V], char setX[MAX_V], int setNum) {
-    setX[setNum] = string[4];//От 6
-    do
-    {
-        /* code */
-    } while (/* condition */);
-    
+    char* tempStr;
+    setX[setNum] = string[4];
+
+    if(string[5] != '=') return 3;
+    else {
+        int i = 6;
+        while(isdigit(string[i])){
+            tempStr += string[i];
+        }       
+    }
 }

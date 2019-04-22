@@ -20,6 +20,8 @@ void handleError(int* errorCode) {
             break;
         case 2:
             printf("Unknown argument!");
+        case 3:
+            printf("Wrong set expression!");
     }
     *errorCode = 0;
 }

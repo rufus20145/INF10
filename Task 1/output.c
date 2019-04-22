@@ -12,6 +12,6 @@
  * @return void
  */
 
-void printResult(int x, int y) {
-
+void printResult(int value, int argument, char funcY) {
+    printf("%c(%d) = %d", funcY, argument, value);
 }
