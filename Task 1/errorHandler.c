@@ -15,6 +15,8 @@
 void handleError(int errorCode) {
     switch (errorCode)
     {
+        case 0:
+            break;
         case 1:
             printf("Input error!");
             break;
