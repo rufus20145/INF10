@@ -12,16 +12,21 @@
  * @uses <stdio.h>
  */
 
-void handleError(int* errorCode) {
-    switch (*errorCode)
+void handleError(int errorCode) {
+    switch (errorCode)
     {
         case 1:
             printf("Input error!");
             break;
         case 2:
             printf("Unknown argument!");
+            break;
         case 3:
             printf("Wrong set expression!");
+            break;
+        case 7:
+            printf("Unknown function expression!");
+            break;
     }
-    *errorCode = 0;
+    errorCode = 0;
 }

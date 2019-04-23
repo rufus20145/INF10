@@ -13,7 +13,18 @@
  * @param char* ctring[] - указатель на строку для парсинга
  * @return void
  */
-int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {
+int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FUNCTION(y=k*x+b)
+    int i;
+    char* tempStr;
+    *funcY=string[9];
+    if(string[10] = '=') {
+        i = 11;
+        while (string[i] != '*')
+        {
+            strcat(string, tempStr);
+        }        
+    }
+    else return 7;
 }
 
 /**

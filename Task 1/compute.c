@@ -15,6 +15,6 @@
  * @return void
  */
 
-void computeResult(char funcX, char setX, int argument, int* value, int* errorCode) {
+int computeFunction(char funcX,char funcY, char setX, int argument, int* value) {
     //проверять на соответствие букв для X и Y здесь
 }
