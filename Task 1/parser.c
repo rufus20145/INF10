@@ -10,8 +10,8 @@
 #define MAX_LEN 250
 
 /**
- * @param char* ctring[] - указатель на строку для парсинга
- * @return void
+ * @param char ctring[] - строка для парсинга
+ * @return код ошибки
  */
 int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FUNCTION(y=k*x+b)
     int i;
@@ -22,17 +22,20 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FU
         while (string[i] != '*')
         {
             strcat(string, tempStr);
-        }        
+        }
+        *k = atoi(string);
+        return 0;        
     }
     else return 7;
 }
 
 /**
- * @param char* string[] - указатель на строку для парсинга
- * @return void
+ * @param char string[] - строка для парсинга
+ * @param int argument - 
+ * @return код ошибки
  */
 
-int parseSet(char string[], int arguments[MAX_V], char setX[MAX_V], int setNum) {
+int parseSet(char string[], int* argument, char* setX, int setNum) {
     char* tempStr;
     setX[setNum] = string[4];
 
