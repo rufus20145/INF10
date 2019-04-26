@@ -38,32 +38,34 @@ printf("Started parsing FUNCTION");
  * @return код ошибки
  */
 
-int parseSet(char string[], int* argument, char* setX, int setNum) {
+int parseSet(char* string, int* argument, char* setX, int setNum) {
 #ifdef DEBUG
-printf("Started parsing SET");
+printf("Started parsing SET\n");
 #endif
     char* tempStr;
     int i;
     setX[setNum] = string[4];
 #ifdef DEBUG
-printf("X letter defined");
+printf("X letter defined\n");
 #endif
 
     if(string[5] != '=') return 3;
     else {
 #ifdef DEBUG
-printf("Started looking for number");
+printf("Started looking for number\n");
 #endif
         i = 6;
         while(isdigit(string[i])) {
-            strcat(tempStr, string[i]);
+            printf("%d\n", i);
+            strcat(tempStr, string);
+            i++;
         }
         *argument = atoi(tempStr);
 #ifdef DEBUG
-printf("Defined number");
+printf("Defined number\n");
 #endif
     }
 #ifdef DEBUG
-printf("Ended parsing SET");
+printf("Ended parsing SET\n");
 #endif
 }

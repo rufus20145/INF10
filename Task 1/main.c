@@ -7,6 +7,8 @@
 
 #include <stdio.h>
 #include <string.h>
+#include <stdlib.h>
+#include <ctype.h>
 #include "errorHandler.c"
 #include "parser.c"
 #include "compute.c"
@@ -36,18 +38,16 @@ int main(int argc, char* argv[]) {
             continue;
         }
         else if(strncmp(argv[i], "SET", 3) == 0) {//проверяем строку на SET
-            for(int k = 0; k < MAX_V; k++) {
-                arguments[k] = k;
-            }
             errorCode = parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
             setNum++;
+            printf("SEen%d\n", arguments[setNum]);
             continue;
         }
         else errorCode = 2;//если там что-то другое
         handleError(errorCode);
     }
     for (int i = 0; i < MAX_V; i++) {
-        errorCode = computeFunction(funcX, funcY, setX[i], arguments[i], values[i]);
+        errorCode = computeFunction(funcX, funcY, setX[i], arguments[i], &values[i]);
         handleError(errorCode);
     }
     for (int i = 0; i < MAX_V; i++) {
