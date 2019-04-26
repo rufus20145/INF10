@@ -14,6 +14,9 @@
  * @return код ошибки
  */
 int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FUNCTION(y=k*x+b)
+#ifdef DEBUG
+printf("Started parsing FUNCTION");
+#endif
     int i;
     char* tempStr;
     *funcY=string[9];
@@ -36,14 +39,31 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FU
  */
 
 int parseSet(char string[], int* argument, char* setX, int setNum) {
+#ifdef DEBUG
+printf("Started parsing SET");
+#endif
     char* tempStr;
+    int i;
     setX[setNum] = string[4];
+#ifdef DEBUG
+printf("X letter defined");
+#endif
 
     if(string[5] != '=') return 3;
     else {
-        int i = 6;
-        while(isdigit(string[i])){
-            tempStr += string[i];
-        }       
+#ifdef DEBUG
+printf("Started looking for number");
+#endif
+        i = 6;
+        while(isdigit(string[i])) {
+            strcat(tempStr, string[i]);
+        }
+        *argument = atoi(tempStr);
+#ifdef DEBUG
+printf("Defined number");
+#endif
     }
+#ifdef DEBUG
+printf("Ended parsing SET");
+#endif
 }
