@@ -38,19 +38,19 @@ int main(int argc, char* argv[]) {
             continue;
         }
         else if(strncmp(argv[i], "SET", 3) == 0) {//проверяем строку на SET
-            errorCode = parseSet(argv[i], arguments, setX, setNum);//setNum - номер найденного SET для работы с массивом
+            arguments[setNum] = 5464;
+            errorCode = parseSet(argv[i], &arguments[setNum], &setX[setNum]);//setNum - номер найденного SET для работы с массивом
             setNum++;
-            printf("SEen%d\n", arguments[setNum]);
             continue;
         }
         else errorCode = 2;//если там что-то другое
         handleError(errorCode);
     }
-    for (int i = 0; i < MAX_V; i++) {
-        errorCode = computeFunction(funcX, funcY, setX[i], arguments[i], &values[i]);
-        handleError(errorCode);
-    }
-    for (int i = 0; i < MAX_V; i++) {
-        printResult(values[i], arguments[i], funcY);
-    }
+    // for (int i = 0; i < MAX_V; i++) {
+        // errorCode = computeFunction(funcX, funcY, setX[i], arguments[i], &values[i]);
+        // handleError(errorCode);
+    // // }
+    // for (int i = 0; i < MAX_V; i++) {
+    //     printResult(values[i], arguments[i], funcY);
+    // }
 }

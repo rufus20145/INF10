@@ -14,20 +14,22 @@
  * @return код ошибки
  */
 int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FUNCTION(y=k*x+b)
-#ifdef DEBUG
-printf("Started parsing FUNCTION");
-#endif
     int i;
     char* tempStr;
-    *funcY=string[9];
-    if(string[10] = '=') {
+
+    *funcY=string[9];//определение буквы зависимой переменной
+    if(string[10] == '=') {
         i = 11;
-        while (string[i] != '*')
-        {
-            strcat(string, tempStr);
+        *k = atoi((char*)(&string[i]));
+
+        i++;
+        if(isdigit(string[i])) {
+            *k *= 10;
+            *k += atoi((char*)(&string[i]));
+            i++;
         }
-        *k = atoi(string);
-        return 0;        
+        
+        return 0;
     }
     else return 7;
 }
@@ -38,34 +40,22 @@ printf("Started parsing FUNCTION");
  * @return код ошибки
  */
 
-int parseSet(char* string, int* argument, char* setX, int setNum) {
-#ifdef DEBUG
-printf("Started parsing SET\n");
-#endif
+int parseSet(char string[], int* argument, char* setX) {//   SET(x=123)
     char* tempStr;
     int i;
-    setX[setNum] = string[4];
-#ifdef DEBUG
-printf("X letter defined\n");
-#endif
 
-    if(string[5] != '=') return 3;
-    else {
-#ifdef DEBUG
-printf("Started looking for number\n");
-#endif
+    *setX = string[4];//работает
+    if(string[5] == '=') {
         i = 6;
-        while(isdigit(string[i])) {
-            printf("%d\n", i);
-            strcat(tempStr, string);
-            i++;
-        }
-        *argument = atoi(tempStr);
-#ifdef DEBUG
-printf("Defined number\n");
-#endif
-    }
-#ifdef DEBUG
-printf("Ended parsing SET\n");
-#endif
+        *argument = atoi((char*)(&string[i]));
+        
+        // while(isdigit(string[i])) {
+        //     strcat(tempStr, (char *)(string[i]));
+        //     i++;
+        // }
+        // printf("1");
+        // *argument = atoi(tempStr);
+        // printf("%d\n", *argument);
+        return 0;
+    } else  return 3;
 }
