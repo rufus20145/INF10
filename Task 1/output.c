@@ -12,6 +12,9 @@
  * @return void
  */
 
-void printResult(int value, int argument, char funcY) {
-    printf("%c(%d) = %d", funcY, argument, value);
+void printResult(int value, int argument, char funcY, int hasError) {
+        if(!hasError) {
+                printf("%c(%d) = %d\n", funcY, argument, value);
+        }
+        else handleError(hasError);
 }

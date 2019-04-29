@@ -26,6 +26,14 @@ void handleError(int errorCode) {
         case 3:
             printf("Wrong SET expression!\n");
             break;
+        case 4:
+            printf("Has no %c variable!");
+            break;
+        case 5:
+            printf("Have no function at all");
+            break;
+        case 6:
+            printf("Cannot set constant");
     }
     errorCode = 0;
 }

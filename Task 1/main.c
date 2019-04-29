@@ -17,13 +17,14 @@
 #define MAX_V 10
 #define MAX_LEN 250
 /**
+ * @example # ./calc FUNCTION(y=7*x+12) SET(x=12) SET(x=4) SET(x=7)
  * @uses <stdio.h>
  * @uses <string.h>
  * @return Возвращает код ошибки в систему
- * @example для запуска надо набрать в консоли название исполняемого файла и аргументы SET и FUNCTION
  */
 
 int main(int argc, char* argv[]) {
+    int hasError[MAX_V];
     int errorCode = 0;
     int k, b;
     char funcX, funcY;
@@ -44,9 +45,9 @@ int main(int argc, char* argv[]) {
         handleError(errorCode);
     }
     for (int i = 0; i < MAX_V; i++) {
-        errorCode = computeFunction( arguments[i], k, b, &values[i]);
+        hasError[i] = computeFunction(funcX, funcY, setX[i], arguments[i], k, b, &values[i]);
     }
-    // for (int i = 0; i < MAX_V; i++) {
-        //printResult(values[i], arguments[i], funcY);
-    // }
+    for (int i = 0; i < MAX_V; i++) {
+        printResult(values[i], arguments[i], funcY, hasError[i]);
+    }
 }

@@ -7,15 +7,14 @@
  */
 
 /**
- * @param funcX - буква, обозначающая аргумент функции
- * @param setX - буква, обозначающая аргумент функции в SET
- * @param argument - значение аргумента функции
- * @param *value - указатель на ячейку, куда класть значене функции
- * @param *errorCode - указатель на код ошибки
+ * @param int argument - значение аргумента функции
+ * @param int k - значение углового коэффициента
+ * @param int b - значение свободного члена
+ * @param *value - указатель на ячейку, куда класть значение функции
  * @return void
  */
 
-int computeFunction( int argument, int k, int b, int* value) {
-    
-
+int computeFunction(char funcX, char funcY, char setX, int argument, int k, int b, int* value) {
+    *value = argument * k + b;
+    return 0;
 }
