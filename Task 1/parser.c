@@ -30,11 +30,14 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FU
             i++;
         }
         *k = atoi(tempStr);
+        for(int k = 0; k < MAX_LEN; k++) tempStr[k] = 'z'; /* необходимо
+очистить массив от цифр, потому что в случае, когда второе число содержит меньше
+цифр, возьмутся некоторые цифры из первого(как оформлять такие комментарии???)*/
         if(string[i] == '*') {
             i++;
             *funcX = string[i];
-            i = j;
             i+=2;
+            j = i;
             while(isdigit(string[i])) {
                 tempStr[i-j] = string[i];
                 i++;

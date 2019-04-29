@@ -35,11 +35,12 @@ int main(int argc, char* argv[]) {
     for(int i = 1; i < argc; i++) {
         if(strncmp(argv[i], "FUNCTION", 8) == 0) {//проверяем строку на FUNCTION
             errorCode = parseFunction(argv[i], &funcX, &funcY, &k, &b);
-            printf("%d\n", b);
+            printf("%c=%d*%c+%d", funcY, k, funcX, b);
             continue;
         }
         else if(strncmp(argv[i], "SET", 3) == 0) {//проверяем строку на SET
             errorCode = parseSet(argv[i], &arguments[setNum], &setX[setNum]);//setNum - номер найденного SET для работы с массивом
+            printf("%c = %d", setX[setNum], arguments[setNum]);
             setNum++;
             continue;
         }
@@ -51,6 +52,6 @@ int main(int argc, char* argv[]) {
         // handleError(errorCode);
     // // }
     // for (int i = 0; i < MAX_V; i++) {
-    //     printResult(values[i], arguments[i], funcY);
+        //printResult(values[i], arguments[i], funcY);
     // }
 }
