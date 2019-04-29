@@ -8,7 +8,7 @@
 
 /**
  * Функция обработки ошибок
- * @param *errorCode - указатель на переменную с кодом ошибки
+ * @param int errorCode - код ошибки
  * @uses <stdio.h>
  */
 
@@ -18,16 +18,13 @@ void handleError(int errorCode) {
         case 0:
             break;
         case 1:
-            printf("Input error!");
+            printf("Input error!\n");
             break;
         case 2:
-            printf("Unknown argument!");
+            printf("Wrong FUNCTION expression!\n");
             break;
         case 3:
-            printf("Wrong set expression!");
-            break;
-        case 7:
-            printf("Unknown function expression!");
+            printf("Wrong SET expression!\n");
             break;
     }
     errorCode = 0;
