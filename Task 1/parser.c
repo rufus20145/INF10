@@ -11,24 +11,36 @@
 
 /**
  * @param char ctring[] - строка для парсинга
+ * @param char* funcX - указатель на букву аргумента
+ * @param char* funcY - указатель на букву зависимой переменной
+ * @param int* k - указатель на уголовой коэффициент
+ * @param int* b - указатель на свободный член
  * @return код ошибки
  */
 int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FUNCTION(y=k*x+b)
     int i;
-    char* tempStr;
+    int j;
+    char tempStr[MAX_LEN];
 
-    *funcY=string[9];//определение буквы зависимой переменной
+    *funcY = string[9];
     if(string[10] == '=') {
         i = 11;
-        *k = atoi((char*)(&string[i]));
-
-        i++;
-        if(isdigit(string[i])) {
-            *k *= 10;
-            *k += atoi((char*)(&string[i]));
+        while(isdigit(string[i])) {
+            tempStr[i-11] = string[i];
             i++;
         }
-        
+        *k = atoi(tempStr);
+        if(string[i] == '*') {
+            i++;
+            *funcX = string[i];
+            i = j;
+            i+=2;
+            while(isdigit(string[i])) {
+                tempStr[i-j] = string[i];
+                i++;
+            }
+            *b = atoi(tempStr);
+        }
         return 0;
     }
     else return 7;
@@ -36,26 +48,23 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FU
 
 /**
  * @param char string[] - строка для парсинга
- * @param int argument - 
+ * @param int* argument - указатель на ячейку массива значений аргументов
+ * @param char* setX - указатель на ячейку массива букв аргументов
  * @return код ошибки
  */
 
 int parseSet(char string[], int* argument, char* setX) {//   SET(x=123)
-    char* tempStr;
+    char tempStr[MAX_LEN];
     int i;
 
     *setX = string[4];//работает
     if(string[5] == '=') {
         i = 6;
-        *argument = atoi((char*)(&string[i]));
-        
-        // while(isdigit(string[i])) {
-        //     strcat(tempStr, (char *)(string[i]));
-        //     i++;
-        // }
-        // printf("1");
-        // *argument = atoi(tempStr);
-        // printf("%d\n", *argument);
+        while(isdigit(string[i])) {
+            tempStr[i-6] = string[i];
+            i++;
+        }
+        *argument = atoi(tempStr);
         return 0;
-    } else  return 3;
+    } else return 3;
 }

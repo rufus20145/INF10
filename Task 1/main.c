@@ -35,10 +35,10 @@ int main(int argc, char* argv[]) {
     for(int i = 1; i < argc; i++) {
         if(strncmp(argv[i], "FUNCTION", 8) == 0) {//проверяем строку на FUNCTION
             errorCode = parseFunction(argv[i], &funcX, &funcY, &k, &b);
+            printf("%d\n", b);
             continue;
         }
         else if(strncmp(argv[i], "SET", 3) == 0) {//проверяем строку на SET
-            arguments[setNum] = 5464;
             errorCode = parseSet(argv[i], &arguments[setNum], &setX[setNum]);//setNum - номер найденного SET для работы с массивом
             setNum++;
             continue;
