@@ -7,14 +7,14 @@
  */
 
 /**
- * @param x - аргумент функции
- * @param y - значение функции
+ * @param char funcY - буква зависимой переменной
+ * @param int argument - значение аргумента функции
+ * @param int value - значение функции
+ * @param int hasError - код ошибки
  * @return void
  */
-
-void printResult(int value, int argument, char funcY, int hasError) {
-        if(!hasError) {
-                printf("%c(%d) = %d\n", funcY, argument, value);
-        }
-        else handleError(hasError);
+void printResult(char funcY, int argument, int value, int hasError) {
+    if(0 == hasError) {
+        printf("%c(%d)=%d\n", funcY, argument, value);
+    }
 }

@@ -27,7 +27,7 @@ void handleError(int errorCode) {
             printf("Wrong SET expression!\n");
             break;
         case 4:
-            printf("Has no %c variable!");
+            printf("Has no such variable!");
             break;
         case 5:
             printf("Have no function at all");

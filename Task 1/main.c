@@ -20,6 +20,10 @@
  * @example # ./calc FUNCTION(y=7*x+12) SET(x=12) SET(x=4) SET(x=7)
  * @uses <stdio.h>
  * @uses <string.h>
+ * @uses "errorHandler.c"
+ * @uses "parser.c"
+ * @uses "compute.c"
+ * @uses "output.c" 
  * @return Возвращает код ошибки в систему
  */
 
@@ -44,10 +48,10 @@ int main(int argc, char* argv[]) {
         else errorCode = 1;//если там что-то другое
         handleError(errorCode);
     }
-    for (int i = 0; i < MAX_V; i++) {
+    for (int i = 0; i < argc - 2; i++) {
         hasError[i] = computeFunction(funcX, funcY, setX[i], arguments[i], k, b, &values[i]);
     }
-    for (int i = 0; i < MAX_V; i++) {
-        printResult(values[i], arguments[i], funcY, hasError[i]);
+    for (int i = 0; i < argc - 2; i++) {
+        printResult(funcY, arguments[i], values[i], hasError[i]);
     }
 }
