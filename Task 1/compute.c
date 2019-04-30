@@ -7,14 +7,27 @@
  */
 
 /**
- * @param int argument - значение аргумента функции
- * @param int k - значение углового коэффициента
- * @param int b - значение свободного члена
- * @param *value - указатель на ячейку, куда класть значение функции
- * @return void
+ * @param char funcX - буква аргумента
+ * @param char funcY - буква зависимой переменной
+ * @param char setX - буква аргумента в SET
+ * @param int argument - значение аргумента
+ * @param int k - угловой коэффициент функции
+ * @param int b - свободный член функции
+ * @param int* value - указатель на значение функции
+ * @return код ошибки||0
+ * @throw return 5 совпадает зависимая переменная и аргумент
+ * @throw return 6 совпадает зависимая переменная и аргумент из SET
+ * @throw return 4 не совпадают аргументы из функции и SET
  */
-
-int computeFunction(char funcX, char funcY, char setX, int argument, int k, int b, int* value) {
-    *value = argument * k + b;
-    return 0;
+int computeFunction(char funcX, char funcY, char setX, int argument, int k, int b, int* value){
+    if(funcX == funcY) return 5;
+    else {
+        if(funcY == setX) return 6;
+        else {
+            if(funcX == setX) {
+                *value = argument * k + b;
+                return 0;
+            } else return 4;
+        }
+    }
 }
