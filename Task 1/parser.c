@@ -28,7 +28,7 @@ int parseFunction(char string[], char* funcX, char* funcY, int* k, int* b) {//FU
     char tempStr[MAX_LEN];
 
     *funcY = string[9];
-    if(string[10] == '=') {
+    if(string[10] == '=') {//добавить проверку на k = 1
         i = 11;
         while(isdigit(string[i])) {
             tempStr[i-11] = string[i];

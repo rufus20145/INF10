@@ -54,4 +54,5 @@ int main(int argc, char* argv[]) {
     for (int i = 0; i < argc - 2; i++) {
         printResult(funcY, arguments[i], values[i], hasError[i]);
     }
+    return 0;
 }
