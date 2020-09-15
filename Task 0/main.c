@@ -32,14 +32,14 @@ int main()
                 break;
             case '/':
                 result = computeDivision(firstNumber, secondNumber, &errorCode);
-                if (1==errorCode)
+                if (1 == errorCode)
                     printf("It`s impossible to divide by 0");
                 else
                     printf("%lg / %lg = %lg\n", firstNumber, secondNumber, result);
                 break;
             case '%':
                 result = computeRemainderOfDivision((int) firstNumber,(int) secondNumber, &errorCode);
-                if (1==errorCode)
+                if (1 == errorCode)
                     printf("It`s impossible to divide by 0");
                 else
                     printf("%lg %% %lg = %lg", firstNumber, secondNumber, result);
@@ -58,8 +58,10 @@ int main()
                 printf("Exit");
                 return 0;
             default:
+                operation = 'p';
                 break;
         }
+        operation = 'p';
         errorCode = 0;
     }
 }
